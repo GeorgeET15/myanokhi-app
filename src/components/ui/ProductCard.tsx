@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Heart, Search } from "lucide-react";
+import { Heart, Search, ChevronLeft, ChevronRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import {
@@ -16,17 +16,26 @@ import {
 interface ProductCardProps {
   name: string;
   price: string;
-  image: string;
+  images: string[]; // Now accepts multiple images
   hoverImage: string;
 }
 
 export default function ProductCard({
   name,
   price,
-  image,
+  images,
   hoverImage,
 }: ProductCardProps) {
   const [hover, setHover] = useState(false);
+  const [currentImage, setCurrentImage] = useState(0);
+
+  const nextImage = () => {
+    setCurrentImage((prev) => (prev + 1) % images.length);
+  };
+
+  const prevImage = () => {
+    setCurrentImage((prev) => (prev - 1 + images.length) % images.length);
+  };
 
   return (
     <div
@@ -37,7 +46,7 @@ export default function ProductCard({
       {/* Image Section */}
       <div className="relative w-full h-[25rem] overflow-hidden">
         <img
-          src={hover ? hoverImage : image}
+          src={hover ? hoverImage : images[0]}
           alt={name}
           className="w-full h-full object-cover transition-all duration-700 ease-in-out"
         />
@@ -60,28 +69,53 @@ export default function ProductCard({
                 <Search className="w-6 h-6 text-gray-600" />
               </button>
             </DialogTrigger>
-            <DialogContent className="max-w-md w-full max-h-[80vh] overflow-y-auto p-4 rounded-lg">
-              <DialogHeader>
-                <DialogTitle className="text-lg font-semibold">
-                  {name}
-                </DialogTitle>
-                <DialogDescription className="text-gray-500">
-                  {price}
-                </DialogDescription>
-              </DialogHeader>
-              <div className="w-full flex justify-center">
-                <img
-                  src={image}
-                  alt={name}
-                  className="w-full max-h-60 object-cover rounded-md"
-                />
-              </div>
-              <p className="text-gray-600 text-sm mt-4">
-                This dress is designed with premium fabrics to give you a
-                stylish and comfortable look. Perfect for any occasion.
-              </p>
-              <div className="flex justify-center mt-4">
-                <Button className="w-full">Add to Cart</Button>
+            <DialogContent className="w-[700px] h-[500px] max-w-none overflow-hidden p-6 rounded-lg">
+              <div className="flex gap-6">
+                {/* Left Side: Image Carousel */}
+                <div className="w-1/2 flex justify-center relative">
+                  <button
+                    onClick={prevImage}
+                    className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white p-2 rounded-full shadow-md hover:bg-gray-200 transition"
+                  >
+                    <ChevronLeft className="w-5 h-5 text-gray-600" />
+                  </button>
+
+                  <img
+                    src={images[currentImage]}
+                    alt={name}
+                    className="w-full max-h-85 object-cover rounded-md"
+                  />
+
+                  <button
+                    onClick={nextImage}
+                    className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white p-2 rounded-full shadow-md hover:bg-gray-200 transition"
+                  >
+                    <ChevronRight className="w-5 h-5 text-gray-600" />
+                  </button>
+                </div>
+
+                {/* Right Side: Info & Actions */}
+                <div className="w-1/2 flex flex-col justify-between">
+                  <div>
+                    <DialogHeader>
+                      <DialogTitle className="text-xl font-semibold">
+                        {name}
+                      </DialogTitle>
+                      <DialogDescription className="text-gray-500">
+                        {price}
+                      </DialogDescription>
+                    </DialogHeader>
+                    <p className="text-gray-600 text-sm mt-4">
+                      This dress is designed with premium fabrics to give you a
+                      stylish and comfortable look. Perfect for any occasion.
+                    </p>
+                  </div>
+
+                  {/* Add to Cart Button */}
+                  <div className="mt-6">
+                    <Button className="w-full">Add to Cart</Button>
+                  </div>
+                </div>
               </div>
             </DialogContent>
           </Dialog>

@@ -6,34 +6,43 @@ const NewArrivals = () => {
     {
       name: "Elegant Red Dress",
       price: "₹2800",
-      image:
-        "https://www.lavanyathelabel.com/cdn/shop/files/01_LBL101KS352_6_1200x.jpg?v=1735980970",
+      images: [
+        "https://myanokhi.in/cdn/shop/files/Newupload11th4.jpg?v=1731329062&width=823",
+        "https://myanokhi.in/cdn/shop/files/New_upload_11th_8.jpg?v=1731326879&width=823",
+        "https://myanokhi.in/cdn/shop/files/SUJ_7338.jpg?v=1732029586&width=823",
+      ],
       hoverImage:
-        "https://www.lavanyathelabel.com/cdn/shop/files/LBL101KS352_3_800x.jpg?v=1735980971",
+        "https://myanokhi.in/cdn/shop/files/New_upload_11th_5.jpg?v=1731327214&width=823",
     },
     {
       name: "Classic Black Gown",
       price: "₹4000",
-      image:
-        "https://www.lavanyathelabel.com/cdn/shop/files/1_8a0433e7-c992-4d63-a3e1-b9b3991304de_800x.jpg?v=1735981098",
+      images: [
+        "https://myanokhi.in/cdn/shop/files/upload_12.jpg?v=1732030945&width=823",
+        "https://myanokhi.in/cdn/shop/files/upload8.jpg?v=1732030535&width=823",
+      ],
       hoverImage:
-        "https://www.lavanyathelabel.com/cdn/shop/files/LBCL101KS256_4_d93a2e4e-82d3-459c-8120-5644f9fa7d11_800x.jpg?v=1735981098",
+        "https://myanokhi.in/cdn/shop/files/upload_13.jpg?v=1732030569&width=823",
     },
     {
       name: "Chic White Summer Dress",
       price: "₹3600",
-      image:
-        "https://www.lavanyathelabel.com/cdn/shop/files/LBCL101KS240_5_7171499b-6cdd-4980-a585-0c9a6b799781_800x.jpg?v=1735981050",
+      images: [
+        "https://myanokhi.in/cdn/shop/files/Anokhiupload1.jpg?v=1731330446&width=823",
+        "https://myanokhi.in/cdn/shop/files/Anokhi_upload_3.jpg?v=1727855767&width=823",
+      ],
       hoverImage:
-        "https://www.lavanyathelabel.com/cdn/shop/files/LBCL101KS240_8_82a8290a-8602-472d-b7f1-0f5174bb93e7_800x.jpg?v=1735981050",
+        "https://myanokhi.in/cdn/shop/files/Anokhi_upload_2.jpg?v=1727855761&width=823",
     },
     {
       name: "Stylish Blue Midi Dress",
       price: "₹3000",
-      image:
-        "https://www.lavanyathelabel.com/cdn/shop/files/01_lbl101ks464_11_800x.jpg?v=1735980712",
+      images: [
+        "https://myanokhi.in/cdn/shop/files/new_026b5072-77e6-476b-bbc1-4a904b3e3d6e.jpg?v=1731330558&width=823",
+        "https://myanokhi.in/cdn/shop/files/Anokhi4.jpg?v=1727892697&width=823",
+      ],
       hoverImage:
-        "https://www.lavanyathelabel.com/cdn/shop/files/9_314b7d63-6739-45ef-97c7-ad0d5ac932ba_800x.jpg?v=1735980712",
+        "https://myanokhi.in/cdn/shop/files/Anokhi4.jpg?v=1727892697&width=823",
     },
   ];
 
